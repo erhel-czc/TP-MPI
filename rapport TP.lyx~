@@ -1,0 +1,2324 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extarticle
+\begin_preamble
+\usepackage{hyperref}   % pour les liens cliquables de la table des matières
+
+\usepackage[svgnames,dvipsnames]{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+
+% Typographie et lisibilité globale
+\onehalfspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\setlength{\headheight}{14pt}
+\renewcommand{\arraystretch}{1.2}
+
+% Légendes et flottants
+\captionsetup{font=small,labelfont=bf}
+
+% Hiérarchie visuelle des titres
+	\titleformat{\section}{\Large\bfseries\color{MidnightBlue}}{\thesection}{0.6em}{}
+	\titleformat{\subsection}{\large\bfseries\color{DarkSlateGray}}{\thesubsection}{0.6em}{}
+	\titlespacing*{\section}{0pt}{1.2em}{0.6em}
+	\titlespacing*{\subsection}{0pt}{1em}{0.4em}
+
+% En-tête/pied de page
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Rapport de TP - PMMA}
+\rhead{\nouppercase{\leftmark}}
+\cfoot{\thepage}
+
+% Liens harmonisés
+\hypersetup{
+    colorlinks=true,
+    linkcolor=MidnightBlue,
+    citecolor=DarkGreen,
+    urlcolor=RoyalBlue
+}
+
+\makeatletter
+\@addtoreset{section}{part}   % reprendre à partir de 1 les sections des parties suivantes.
+\makeatother
+
+\usepackage{tocbibind} % pour afficher les références dans la table des matières
+\end_preamble
+\options titlepage
+\use_default_options true
+\maintain_unincluded_children no
+\language french
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Rapport de TP
+\begin_inset Newline newline
+\end_inset
+
+Influence de la masse molaire sur les relaxations
+\begin_inset Newline newline
+\end_inset
+
+moléculaires d’un polyméthacrylate de méthyle (PMMA)
+\end_layout
+
+\begin_layout Author
+Par CAYZAC Erhel,
+ GORI Thomas,
+\begin_inset Newline newline
+\end_inset
+
+HOUDANT Esther,
+ ROUGET Alexandre
+\end_layout
+
+\begin_layout Date
+Juin 2026
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename logo.png
+	lyxscale 10
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Introduction
+\end_layout
+
+\begin_layout Standard
+Un polymère est une macromolécule constituée d’une répétition de plus petites unités appelées monomères.
+ Les propriétés du matériau que forment les polymères dépendent de sa géométrie dans l’espace,
+ et elle-même est fonction,
+ entre autres,
+ de la longueur du polymère et de la température.
+ En fonction de la température,
+ on peut observer des transitions de phase qui se traduisent par des changements de conformation du polymère.
+ Cette géométrie peut également être influencée par la tacticité du polymère,
+ par exemple,
+ mais cet aspect ne sera pas étudié dans ce travail.
+\end_layout
+
+\begin_layout Standard
+Notre étude porte sur les changements de conformation d’un polymère :
+ le PMMA.
+ Ce polymère est utilisé pour ses propriétés optiques et sa surface.
+ Il est notamment transparent,
+ limpide et brillant.
+ De plus,
+ il résiste bien aux intempéries.
+ À ce titre,
+ il est par exemple employé,
+ sous le nom de plexiglas,
+ dans les pare-brises.
+\end_layout
+
+\begin_layout Standard
+Sans déformation mécanique,
+ le PMMA est un matériau amorphe,
+ autrement dit,
+ il ne présente aucune structure géométrique à l’échelle globale.
+ Il peut néanmoins connaître des changements de conformation,
+ qu’il est intéressant d’analyser pour des raisons industrielles.
+\end_layout
+
+\begin_layout Standard
+L’analyse de ces transitions en fonction de la température permet de choisir les plages de température adéquates pour des opérations de transformation et de mise en forme des polymères et d’établir des températures en service à ne pas dépasser.
+\end_layout
+
+\begin_layout Standard
+Nous nous proposons donc d’étudier les différentes transitions alpha,
+ bêta,
+ et gamma possibles en fonction de la température pour un échantillon de PMMA.
+ Dans cet objectif,
+ nous aurons recours à une DMA et une DSC.
+\end_layout
+
+\begin_layout Section
+Méthodes de mesures présentées
+\end_layout
+
+\begin_layout Subsection
+La DMA :
+ analyse mécanique dynamique
+\end_layout
+
+\begin_layout Standard
+Lors d’une DMA,
+ on applique une contrainte mécanique oscillante à un matériau (traction,
+ flexion ou torsion),
+ puis on mesure sa réponse.
+\end_layout
+
+\begin_layout Standard
+La réponse peut alors être séparée en deux composantes :
+\end_layout
+
+\begin_layout Itemize
+Module de stockage (
+\begin_inset Formula $E’$
+\end_inset
+
+) :
+ qui est la partie élastique et correspond à l’énergie stockée
+\end_layout
+
+\begin_layout Itemize
+Module de perte (
+\begin_inset Formula $E’’$
+\end_inset
+
+) :
+ qui est la partie visqueuse et correspond à l’énergie dissipée (chaleur)
+\end_layout
+
+\begin_layout Standard
+On peut alors définir la quantité 
+\begin_inset Formula ${\displaystyle \tan\delta=\frac{E''}{E'}}$
+\end_inset
+
+ qui rend compte de l’amortissement et correspond également au déphasage de la réponse par rapport à l’entrée.
+ On fait varier la température,
+ la fréquence de sollicitation et l’amplitude de déformation.
+ On détecte alors la transition vitreuse (
+\begin_inset Formula $T_{g}$
+\end_inset
+
+) à l’aide d’un pic de 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\tan\delta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+DSC :
+ Calorimétrie différentielle à balayage
+\end_layout
+
+\begin_layout Standard
+La DSC mesure les flux de chaleur échangés entre un échantillon et une référence lorsqu’on chauffe ou refroidit.
+ On compare un creuset contenant l’échantillon et un creuset de référence vide.
+ On impose une rampe de température et on mesure la différence de flux thermique.
+ Sur la courbe DSC,
+ on identifie la transition vitreuse par un saut de capacité calorifique.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Réponse aux questions
+\end_layout
+
+\begin_layout Section
+Analyse DMA du PMMA3500
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Réaliser une analyse DMA depuis -100 jusqu’à +200 °C pour 3 fréquences (0,1 ;
+ 1 et 10 Hz,
+ option multifréquence) à 3 °C/min sur PMMA3500.
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Une étude propre aurait demandé une vitesse de 1 °C/min.
+ Pour des raisons de temps nous utilisons 3 °C/min.
+ Quel risque prenons-nous ?
+\end_layout
+
+\begin_layout Standard
+En chimie,
+ les effets cinétiques et thermodynamiques sont à prendre en compte :
+ par exemple,
+ la réaction de Diels-Alder ne donne pas le même produit selon que l’on est sous contrôle orbitalaire (produit cinétique) ou sous contrôle thermodynamique (produit thermodynamique).
+ Ici,
+ en allant 
+\begin_inset Quotes fld
+\end_inset
+
+trop vite
+\begin_inset Quotes frd
+\end_inset
+
+ pour chauffer l’échantillon,
+ nous prenons le risque d’une cinétique qui ne serait pas assez rapide pour suivre l’évolution de la température.
+ On obtiendrait donc une réponse décalée dans le temps,
+ et perturbée,
+ car elle n’aurait pas eu le temps de se faire correctement.
+ Nous appellerons analyse 3 l’essai PMMA réalisé à 3 °C/min,
+ et analyse 1 l’essai PMMA réalisé à 1 °C/min.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+2.
+\end_layout
+
+\end_inset
+
+Dans quel sens va-t-on introduire une erreur sur les températures ?
+ Vont-elles paraître plus hautes ou plus basses ?
+\end_layout
+
+\begin_layout Standard
+La cinétique va aller plus lentement,
+ et pour une même température le système n’aura pas encore atteint son état chimique d’analyse 3,
+ donc la réponse va être décalée vers la droite du graphe et les températures apparentes seront plus élevées.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+3.
+\end_layout
+
+\end_inset
+
+Mis à part pour des raisons de temps,
+ pourquoi n’envisageons-nous pas de partir de -270 °C ?
+\end_layout
+
+\begin_layout Standard
+Pour partir de -270 °C,
+ il faudrait avoir la possibilité physique de refroidir un milieu à cette température.
+ On ne peut donc pas utiliser de glace (refroidissement à 0 °C),
+ ni même de l’azote liquide (fonctionne pour - 200 °C mais pas en dessous).
+ Il faudrait en théorie utiliser de l’hélium liquide,
+ substance très chère et peu pratique.
+ Pour la produire,
+ il faut utiliser le procédé en plusieurs étapes Linde Hampson.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Comparaison des analyses DMA :
+ PMMA80 et PMMA120
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+On fournit des essais similaires sur PMMA80 et PMMA120.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Reconnaître les transitions
+\end_layout
+
+\begin_layout Standard
+On observe une transition alpha à 120 °C et une bêta à 10 °C à 1Hz pour le PMMA 80,
+ et une transition alpha à 120 °C et une bêta à 30 °C à 1 Hz pour le PMMA 120.
+ Cependant,
+ la lecture de la transition bêta est très approximative du fait des faibles variations
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+2.
+\end_layout
+
+\end_inset
+
+Indexer les relaxations visibles
+\end_layout
+
+\begin_layout Standard
+Nous étudions les données fournies à l’aide d’un Notebook Jupyter (code trouvable en annexe).
+ Les transitions gamma ne sont pas visibles sur les graphes suivants car ces transitions se situent à des températures inférieures aux températures de la plage étudiée.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename analyses/DMA/output/PMMA80 1deg.pdf
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DMA du PMMA80 à 1 °C/min.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On a rassemblé ci-dessous les valeurs (en °C) des températures de transition 
+\begin_inset Formula $\alpha,\beta$
+\end_inset
+
+ pour le PMMA80.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PMMA80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10 Hz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 Hz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,1 Hz
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Transition 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+120
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+110
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+105
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Transition 
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename analyses/DMA/output/PMMA120 1deg.pdf
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DMA du PMMA120 à 1 °C/min.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On a rassemblé ci-dessous les valeurs (en °C) des températures de transition 
+\begin_inset Formula $\alpha,\beta$
+\end_inset
+
+ pour le PMMA120.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PMMA120
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10 Hz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 Hz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,1 Hz
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Transition 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+130
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+120
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+115
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Transition 
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+3.
+\end_layout
+
+\end_inset
+
+On admet que les fréquences de relaxation obéissent à une dépendance de type Arrhenius avec la température.
+ Identifier les énergies d’activation associées aux deux relaxations identifiées.
+\end_layout
+
+\begin_layout Standard
+Afin d’identifier les énergies d’activation pour les relaxations des polymères,
+ nous considérons la relation d’Arrhenius suivante :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\ln\frac{f_{0}}{f}=\frac{E_{a}}{R}\left(\frac{1}{T}-\frac{1}{T_{0}}\right)
+\]
+
+\end_inset
+
+Les lectures des transitions bêta étant imprécises,
+ nous ne trouvons pas d’écart suffisamment grand et précis sur les températures pour pouvoir obtenir un résultat convenable.
+ Nous considérons alors uniquement les transitions alpha pour le PMMA 80 et PMMA 120.
+ Pour cela,
+ nous effectuons la régression linéaire suivante :
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\underbrace{\ln\frac{f_{0}}{f}}_{Y}=A\times\underbrace{\frac{1}{R}\left(\frac{1}{T}-\frac{1}{T_{0}}\right)}_{X}+B,(A,B)\in\mathbb{R}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename analyses/DMA/output/arrhenius_analysis_pmma80.pdf
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Étude de la transition alpha du PMMA80.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename analyses/DMA/output/arrhenius_analysis_pmma120.pdf
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Étude de la transition alpha du PMMA120.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $A=E_{a}$
+\end_inset
+
+ (J)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $B$
+\end_inset
+
+ (
+\begin_inset Formula $\approx0$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PMMA80
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3,14.10^{4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-0,26$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0,9758$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PMMA120
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3,72.10^{4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3,44$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0,9749$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Les valeurs de 
+\begin_inset Formula $r^{2}$
+\end_inset
+
+ sont convenables pour une régression linéaire,
+ mais on aurait pu espérer mieux sur une régression à 3 points seulement.
+ On remarque que même si la valeur de 
+\begin_inset Formula $B$
+\end_inset
+
+ est censée être proche de zéro,
+ sur le PMMA120 on obtient un 
+\begin_inset Formula $B=3,44$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+4.
+\end_layout
+
+\end_inset
+
+Récupérer la courbe du PMMA3500 et discuter des effets de masse.
+\end_layout
+
+\begin_layout Standard
+À l’aide d’un notebook Jupyter (code trouvable en annexe),
+ nous avons affiché les modules de stockage,
+ de perte et leur rapport pour du PMMA3500,
+ grâce à une analyse DMA à 1 °C/min.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename analyses/DMA/output/PMMA3500 1deg.pdf
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DMA du PMMA3500 à 1 °C/min.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On a rassemblé ci-dessous les valeurs (en °C) des températures de transition 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10 Hz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 Hz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,1 Hz
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PMMA3500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+140
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+130
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+125
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PMMA120
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+130
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+120
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+115
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PMMA80
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+120
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+110
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+105
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On constate que plus les molécules sont lourdes,
+ plus la température nécessaire à la transition est élevée.
+ Les chaînes de plus petite taille (donc de masse inférieure) deviennent mobiles plus facilement,
+ donc leur transition requiert un apport d’énergie moindre,
+ donc une température moins élevée.
+\end_layout
+
+\begin_layout Section
+Analyse DSC des échantillons de PMMA
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Sur un échantillon de chaque PMMA,
+ réaliser un essai d’analyse enthalpique différentielle (DSC dans son acronyme anglais) de +20 à +250 °C,
+ en chauffant à +40 puis en refroidissant à -40 °C/min.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+On prend un film mince pour cet essai,
+ ce qui impose une faible quantité.
+ Pourquoi ?
+\end_layout
+
+\begin_layout Standard
+On utilise un échantillon mince pour travailler à l’équilibre thermique à tout instant,
+ et éviter d’avoir un gradient thermique provoqué par la diffusion de la chaleur :
+ on peut considérer que la température est homogène dans l’échantillon à tout instant.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+2.
+\end_layout
+
+\end_inset
+
+Quel est le danger à prendre un petit échantillon ?
+\end_layout
+
+\begin_layout Standard
+Cela peut néanmoins poser un problème :
+ la sonde qui effectue des mesures est située,
+ dans le PMMA,
+ sous l’échantillon,
+ qui doit donc être en contact avec elle sur une grande surface.
+ En utilisant un petit échantillon,
+ on prend le risque d’avoir une sonde qui ne touche pas ou très partiellement l’échantillon.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+3.
+\end_layout
+
+\end_inset
+
+Que discerne-t-on sur les thermogrammes ?
+\end_layout
+
+\begin_layout Standard
+On observe le diagramme 
+\begin_inset Quotes fld
+\end_inset
+
+endo-up
+\begin_inset Quotes frd
+\end_inset
+
+,
+ c’est-à-dire que les phénomènes endothermiques,
+ qui consomment de l’énergie,
+ se traduisent sur le diagramme par une montée de la courbe.
+ On voit donc qu’il faut fournir de l’énergie à la molécule pour qu’elle change de conformation.
+ Cela a du sens puisqu’il faut fournir de l’énergie pour franchir la barrière énergétique associée à la mise en rotation des liaisons.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+4.
+\end_layout
+
+\end_inset
+
+L’analyse DMA permet d’identifier 
+\begin_inset Formula $T_{\alpha}$
+\end_inset
+
+,
+ tandis que l’analyse DSC permet d’identifier 
+\begin_inset Formula $T_{g}$
+\end_inset
+
+.
+ Discuter la différence entre ces deux données.
+\end_layout
+
+\begin_layout Standard
+La DSC est une méthode calorimétrique,
+ donc fondée sur un échange de chaleur,
+ alors que la DMA est une méthode mécanique,
+ fondée sur une sollicitation oscillante.
+ Lorsqu’on cherche à mesurer ces grandeurs,
+ on laisse au matériau un certain temps de relaxation :
+ celui-ci est plus long dans une expérience de nature thermique que dans une expérience de nature mécanique.
+ On laisse donc un temps d’adaptation plus court pour la DMA,
+ et repérer la transition vitreuse exige donc une température plus élevée (puisqu’il faut une meilleure mobilité pour atteindre le même état en moins de temps).
+ On a donc 
+\begin_inset Formula $T_{\alpha}\geq T_{g}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Influence de la masse molaire sur
+\begin_inset Formula $T_{g}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Discuter l’effet de la masse molaire sur la base de la loi Flory-Fox :
+\begin_inset Formula $T_{g}=T_{g,\infty}-\frac{K}{M_{n}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+On constate que la température de transition vitreuse augmente lorsque la masse molaire en nombre du polymère augmente.
+ En effet,
+ des chaînes plus longues présentent une mobilité plus faible,
+ de sorte qu'une température plus élevée est nécessaire pour permettre les mouvements segmentaires et donc un comportement visco élastique.
+ De plus,
+ la température de transition vitreuse tend vers une valeur limite lorsque la masse molaire devient très grande.
+ On peut l'expliquer par le fait que l'influence des extrémités de chaîne,
+ plus mobiles,
+ diminue à mesure que la longueur des chaînes augmente.
+ Au-delà d'une certaine taille caractéristique,
+ les propriétés locales de la chaîne deviennent prépondérantes et déterminent essentiellement la valeur de cette transition.
+\end_layout
+
+\begin_layout Section
+Observation microscopique du PMMA80
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Réaliser un chauffage et un refroidissement sous microscope sur PMMA80.
+ Commentez.
+\end_layout
+
+\begin_layout Standard
+La micrographie obtenue est uniformément sombre :
+ il n’y a pas de cristaux.
+ On conclut que le polymère est dans un état vitreux.
+ En effet,
+ certains polymères ne peuvent pas cristalliser,
+ c’est le cas du PMMA.
+ Sa structure peu linéaire empêche les macromolécules de s’aligner pour former une structure cristalline.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Manipulations
+\end_layout
+
+\begin_layout Standard
+Nous avons été amenés à réaliser la DSC d'un PMMA.
+ Pour cela,
+ nous avons découpé un copeau de PMMA,
+ placé ensuite dans une étuve scellée de quelques millimètres de diamètre.
+ Nous l'avons ensuite placé dans la DSC,
+ puis réglé une rampe de température de -10 °C à 180 °C à une vitesse de 10 °C/min.
+ Nous obtenons le résultat suivant :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename analyses/DSC/PMMA2.pdf
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DSC du PMMA.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nous remarquons une forte rupture de pente endothermique à 147 °C,
+ correspondant à la température de vitrification 
+\begin_inset Formula $T_{g}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Annexes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=Python,numbers=left,breaklines=true,showstringspaces=false"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+import numpy as np
+\end_layout
+
+\begin_layout Plain Layout
+
+import matplotlib.pyplot as plt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+alpha_trans_temp = np.array([105,
+ 110,
+ 120])
+\end_layout
+
+\begin_layout Plain Layout
+
+freq = np.array([0.1,
+ 1,
+ 10])
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+f_0,
+ alpha_trans_temp_0 = freq[0],
+ alpha_trans_temp[0]
+\end_layout
+
+\begin_layout Plain Layout
+
+R = 8.314
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ln_f_ratio = np.log(f_0 / freq)
+\end_layout
+
+\begin_layout Plain Layout
+
+invert_temp_diff = (1 / R) * (1 / alpha_trans_temp - 1 / alpha_trans_temp_0)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Régression linéaire y = a*x + b
+\end_layout
+
+\begin_layout Plain Layout
+
+a,
+ b = np.polyfit(invert_temp_diff,
+ ln_f_ratio,
+ 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+x_fit = np.linspace(invert_temp_diff.min(),
+ invert_temp_diff.max(),
+ 100)
+\end_layout
+
+\begin_layout Plain Layout
+
+y_fit = a * x_fit + b
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Coefficient de détermination
+\end_layout
+
+\begin_layout Plain Layout
+
+y_pred = a * invert_temp_diff + b
+\end_layout
+
+\begin_layout Plain Layout
+
+ss_res = np.sum((ln_f_ratio - y_pred) ** 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+ss_tot = np.sum((ln_f_ratio - np.mean(ln_f_ratio)) ** 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+r2 = 1 - ss_res / ss_tot
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.figure(figsize=(8,
+ 5))
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.plot(invert_temp_diff,
+ ln_f_ratio,
+ "--+",
+ alpha=0.7,
+\end_layout
+
+\begin_layout Plain Layout
+
+         markersize=10,
+ label="Points expérimentaux")
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.plot(x_fit,
+ y_fit,
+ label=f"Régression linéaire :
+ y = {a:.2f}x + {b:.2f}")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.title(r"Analyse d'Arrhenius - Transition $
+\backslash
+alpha$ PMMA80,
+ $r^2$ =" + f" {r2:.4f}")
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.xlabel(
+\end_layout
+
+\begin_layout Plain Layout
+
+    r"$
+\backslash
+left(
+\backslash
+frac{1}{R}
+\backslash
+right)
+\backslash
+left(
+\backslash
+frac{1}{T} - 
+\backslash
+frac{1}{T_0}
+\backslash
+right)$")
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.ylabel(r"$
+\backslash
+ln
+\backslash
+left(
+\backslash
+frac{f_0}{f}
+\backslash
+right)$")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.grid()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.legend()
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.tight_layout()
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.savefig("output/arrhenius_analysis_pmma80.pdf")
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.savefig("output/arrhenius_analysis_pmma80.svg")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+plt.show()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fonction d'affichage des DMA.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "language=Python,numbers=left,breaklines=true,showstringspaces=false"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+import pandas as pd
+\end_layout
+
+\begin_layout Plain Layout
+
+import matplotlib.pyplot as plt
+\end_layout
+
+\begin_layout Plain Layout
+
+import numpy as np
+\end_layout
+
+\begin_layout Plain Layout
+
+import seaborn as sns
+\end_layout
+
+\begin_layout Plain Layout
+
+sns.set_style()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def plot(data_name,
+ export=False,
+ title=None):
+\end_layout
+
+\begin_layout Plain Layout
+
+    from matplotlib.ticker import MultipleLocator
+\end_layout
+
+\begin_layout Plain Layout
+
+    df = pd.read_csv(f"{data_name}.csv",
+ sep=";")
+\end_layout
+
+\begin_layout Plain Layout
+
+    freq = ["0,1",
+ "1",
+ "10"]
+\end_layout
+
+\begin_layout Plain Layout
+
+    temp = df["Temp(C)"]
+\end_layout
+
+\begin_layout Plain Layout
+
+    fig,
+ axes = plt.subplots(3,
+ 1,
+ figsize=(10,
+ 8),
+ sharex=True)
+\end_layout
+
+\begin_layout Plain Layout
+
+    # graduations plus resserées
+\end_layout
+
+\begin_layout Plain Layout
+
+    axes[2].xaxis.set_major_locator(MultipleLocator(10))
+\end_layout
+
+\begin_layout Plain Layout
+
+    axes[2].xaxis.set_minor_locator(MultipleLocator(2))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    for ax in axes:
+\end_layout
+
+\begin_layout Plain Layout
+
+        ax.grid(True,
+ axis="x",
+ which="major")
+\end_layout
+
+\begin_layout Plain Layout
+
+        ax.grid(True,
+ axis="x",
+ which="minor",
+ alpha=0.5,
+ linestyle="--")
+\end_layout
+
+\begin_layout Plain Layout
+
+        ax.grid(True,
+ axis="y",
+ which="major")
+\end_layout
+
+\begin_layout Plain Layout
+
+        ax.grid(True,
+ axis="y",
+ which="minor",
+ alpha=0.5,
+ linestyle="--")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    # Module de stockage
+\end_layout
+
+\begin_layout Plain Layout
+
+    for f in freq:
+\end_layout
+
+\begin_layout Plain Layout
+
+        axes[0].plot(temp,
+ df[f"Modulus {f}"],
+ "+",
+ label=f"{f} Hz")
+\end_layout
+
+\begin_layout Plain Layout
+
+    axes[0].set_ylabel("Module de stockage (Pa)")
+\end_layout
+
+\begin_layout Plain Layout
+
+    #axes[0].set_yscale("log")
+\end_layout
+
+\begin_layout Plain Layout
+
+    axes[0].legend()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    if title:
+\end_layout
+
+\begin_layout Plain Layout
+
+        axes[0].set_title(title)
+\end_layout
+
+\begin_layout Plain Layout
+
+    else:
+\end_layout
+
+\begin_layout Plain Layout
+
+        axes[0].set_title(f"DMA - {data_name}")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    # Tan Delta
+\end_layout
+
+\begin_layout Plain Layout
+
+    for f in freq:
+\end_layout
+
+\begin_layout Plain Layout
+
+        axes[1].plot(temp,
+ df[f"Tan Delta {f}"],
+ "+",
+ label=f"{f} Hz")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    axes[1].set_ylabel(r"$
+\backslash
+tan (
+\backslash
+delta)$")
+\end_layout
+
+\begin_layout Plain Layout
+
+    axes[1].legend()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    # Module de perte
+\end_layout
+
+\begin_layout Plain Layout
+
+    for f in freq:
+\end_layout
+
+\begin_layout Plain Layout
+
+        axes[2].plot(temp,
+ df[f"Loss Modulus {f}"],
+ "+",
+ label=f"{f} Hz")
+\end_layout
+
+\begin_layout Plain Layout
+
+    axes[2].set_xlabel("Température (°C)")
+\end_layout
+
+\begin_layout Plain Layout
+
+    axes[2].set_ylabel("Module de perte (Pa) (log scale)")
+\end_layout
+
+\begin_layout Plain Layout
+
+    axes[2].set_yscale("log")
+\end_layout
+
+\begin_layout Plain Layout
+
+    axes[2].legend()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    plt.tight_layout()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    if export:
+\end_layout
+
+\begin_layout Plain Layout
+
+        plt.savefig(f"output/{data_name}.pdf")
+\end_layout
+
+\begin_layout Plain Layout
+
+        plt.savefig(f"output/{data_name}.svg")
+\end_layout
+
+\begin_layout Plain Layout
+
+    plt.show()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fonction d'affichage des DMA.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
